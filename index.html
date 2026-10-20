@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>WORK Contabilidade</title>
+<title>Work Serviços Empresariais</title>
 <script>(function(){var t;try{t=localStorage.getItem("work-theme")}catch(e){}if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)})()</script>
-<meta name="description" content="Contabilidade com clareza, segurança e proximidade. Área do cliente online.">
+<meta name="description" content="Contabilidade, assessoria jurídica e recuperação tributária com clareza, segurança e proximidade.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@800&display=swap" rel="stylesheet">
@@ -363,106 +363,64 @@ footer{border-top:2px solid;border-image:var(--gg) 1}
 @media(max-width:620px){.svc{grid-template-columns:1fr}}
 </style>
 <style>
-/* v13: iPad realista (alumínio, espessura 3D, câmera, reflexo) */
-.stage{position:relative;perspective:1600px}
-.stage::after{content:"";position:absolute;left:10%;right:10%;bottom:-30px;height:40px;background:radial-gradient(closest-side,rgba(0,0,0,.38),transparent)}
-.ipad{--t:30px;border:3px solid transparent;border-radius:30px;padding:16px;transform-style:preserve-3d;transform:rotateY(18deg) rotateX(6deg);box-shadow:none;
-background:linear-gradient(#050505,#050505) padding-box,linear-gradient(135deg,#f6f7f9,#a9adb4 28%,#eceef1 52%,#979ca4 78%,#e2e4e8) border-box}
-.stage:hover .ipad{transform:rotateY(6deg) rotateX(2deg)}
-.ipad::before{top:5px}
-.ipad::after{content:"";position:absolute;inset:16px;border-radius:12px;background:linear-gradient(115deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,0) 40%);pointer-events:none}
-.ipad .sl,.ipad .sb{position:absolute;display:block}
-.ipad .sl{top:-3px;bottom:-3px;left:calc(var(--t)/-2 - 3px);width:var(--t);background:linear-gradient(180deg,#eceef1,#a5a9b0 50%,#d6d8dd);transform:translateZ(calc(var(--t)/-2)) rotateY(-90deg)}
-.ipad .sb{left:-3px;right:-3px;bottom:calc(var(--t)/-2 - 3px);height:var(--t);background:linear-gradient(90deg,#c6c9cf,#eef0f2 50%,#b2b6bd);transform:translateZ(calc(var(--t)/-2)) rotateX(-90deg)}
-.mock{position:relative;aspect-ratio:4/3;padding:22px 26px;box-shadow:0 0 0 1px #000}
-.mock::after{content:"";position:absolute;left:50%;bottom:10px;width:120px;height:4px;margin-left:-60px;border-radius:2px;background:rgba(255,255,255,.5)}
-.sbar{display:flex;justify-content:space-between;align-items:center;margin:-8px 0 20px;font:600 11px var(--ui);color:#e6e6e0}
-.bat{position:relative;width:22px;height:10px;border:1px solid #bdbdb5;border-radius:3px}
-.bat b{position:absolute;inset:1px;background:#e6e6e0;border-radius:1px}
-.bat::after{content:"";position:absolute;right:-4px;top:2px;width:2px;height:4px;background:#bdbdb5}
-.mock .mr{padding:16px 0}
-@media(max-width:900px){.ipad{transform:none}}
+/* v13: animações — cena contábil no hero e movimento nas seções */
+.scene{--fh:360px}.scene::before{top:6%;bottom:6%}
+.lay{position:absolute;inset:0;pointer-events:none;transition:transform .3s ease-out;transform:translate(calc(var(--px,0)*var(--k)),calc(var(--py,0)*var(--k)*.6))}
+.lay.back{--k:-10px}.lay.mid{--k:-22px}.lay.front{--k:-42px}
+.ledger{position:absolute;left:50%;top:46%;width:min(300px,74%);margin:-165px 0 0 -150px;padding:22px;background:var(--ink);color:#f3f3ef;border:2px solid transparent;border-radius:14px;background:linear-gradient(#141413,#141413) padding-box,var(--gg) border-box;box-shadow:0 40px 60px -28px rgba(0,0,0,.55);transform:perspective(900px) rotateY(calc(var(--px,0)*-7deg - 7deg)) rotateX(calc(var(--py,0)*5deg + 3deg));animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{translate:0 -10px}}
+.lh{display:flex;justify-content:space-between;align-items:center;gap:8px;font:600 13px var(--ui);color:#c4c4bc}
+.tot{font:700 32px/1.2 var(--head);margin-top:12px;font-variant-numeric:tabular-nums}
+.up{font:500 12px var(--ui);color:#7fd69c}
+.chart{position:relative;height:92px;margin:16px 0 14px;border-bottom:1px solid #3b3b37}
+.bars{position:absolute;inset:0;display:flex;align-items:flex-end;gap:7px}.bars i{flex:1;height:var(--h);background:var(--gg);border-radius:3px 3px 0 0;transform:scaleY(0);transform-origin:bottom}
+.go .bars i{transform:scaleY(1);transition:transform .7s cubic-bezier(.2,.8,.2,1) calc(var(--i)*.09s)}
+.fade .bars,.fade .spark,.fade .lk{opacity:0;transition:opacity .6s}
+.spark{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.ln{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1}
+.go .ln{stroke-dashoffset:0;transition:stroke-dashoffset 1.5s ease .6s}
+.lk{list-style:none;margin:0;padding:0;font:500 13px var(--ui);color:#d9d9d2}.lk li{display:flex;align-items:center;gap:9px;padding:5px 0}
+.tk{width:18px;height:18px;padding:3px;border-radius:50%;background:#1f3d2b;fill:none;stroke:#7fd69c;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.tk path{stroke-dasharray:1;stroke-dashoffset:1}
+.go .tk path{stroke-dashoffset:0;transition:stroke-dashoffset .5s ease 1.8s}.go li+li .tk path{transition-delay:2.3s}
+.coin{position:absolute;top:0;left:var(--x);width:var(--s);height:var(--s);opacity:0;animation:fall var(--dur) linear var(--del) infinite}
+.coin i{position:absolute;inset:0;border-radius:50%;background:var(--gg);box-shadow:inset 0 0 0 2px #B88717,inset 0 0 0 5px #F4DC7E,0 2px 0 #9a7210;transform-style:preserve-3d;animation:flip var(--fp) linear infinite}
+.coin i::before{content:"R$";position:absolute;inset:0;display:grid;place-items:center;font:700 calc(var(--s)*.34)/1 var(--head);color:#8A6508;backface-visibility:hidden}
+@keyframes flip{to{transform:rotateY(360deg)}}
+@keyframes fall{0%{transform:translate(0,-50px);opacity:0;animation-timing-function:cubic-bezier(.5,0,.9,.5)}8%{opacity:1}76%{transform:translate(var(--dx),var(--fh));opacity:1;animation-timing-function:cubic-bezier(.2,.6,.4,1)}83%{transform:translate(var(--dx),calc(var(--fh) - 28px));animation-timing-function:ease-in}90%{transform:translate(var(--dx),var(--fh));opacity:1}100%{transform:translate(var(--dx),var(--fh));opacity:0}}
+.pp{position:absolute;left:var(--x);top:92%;width:var(--w);height:calc(var(--w)*1.3);opacity:0;animation:fly var(--dur) ease-in-out var(--del) infinite}
+.pp b{position:absolute;inset:0;background:repeating-linear-gradient(var(--line) 0 2px,transparent 2px 9px) 10px 22px/calc(100% - 20px) calc(100% - 32px) no-repeat,var(--card);border:1px solid var(--line);border-top:5px solid var(--y);border-radius:3px;box-shadow:0 10px 22px rgba(0,0,0,.16)}
+@keyframes fly{0%{transform:translate(0,0) rotate(calc(var(--r)*-1));opacity:0}12%{opacity:1}50%{transform:translate(34px,-190px) rotate(var(--r))}88%{opacity:1}100%{transform:translate(-14px,-390px) rotate(calc(var(--r)*-1.5));opacity:0}}
+@media(max-width:900px){.scene{--fh:285px}}
+.prog{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--y);transform:scaleX(0);transform-origin:left;z-index:2}
+.tag.wa{animation:pulse 2.4s ease-out infinite}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(212,175,55,.55)}70%,100%{box-shadow:0 0 0 9px rgba(212,175,55,0)}}
+.js .rv{opacity:0;translate:0 28px;transition:opacity .8s ease var(--d,0s),translate .8s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.js .rv.in{opacity:1;translate:0 0}
+.js .sc.rv{transition:opacity .8s ease var(--d,0s),translate .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .3s,box-shadow .3s,border-color .3s}
+.sc:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(0,0,0,.12);border-color:var(--y)}
+.js .sc .ico *{stroke-dasharray:1;stroke-dashoffset:1}.js .sc.in .ico *{stroke-dashoffset:0;transition:stroke-dashoffset 1.4s ease .3s}
+.js .hl::before{transform:scaleX(0);transition:transform .9s ease .2s}.js .hl.in::before{transform:scaleX(1)}
+.js .step::before{scale:.3;transition:scale .5s cubic-bezier(.3,1.6,.5,1) var(--d,0s)}.js .step.in::before{scale:1}
+.js .step:not(:last-child)::after{transform:scaleX(0);transform-origin:left;transition:transform .9s ease .5s}.js .step.in::after{transform:scaleX(1)}
+.js .stage .mr{opacity:0;translate:-18px 0;transition:opacity .5s ease,translate .5s ease;transition-delay:calc(.3s + var(--i)*.15s)}.js .stage.in .mr{opacity:1;translate:0 0}
+@media(prefers-reduced-motion:reduce){.ledger,.tag.wa{animation:none}.prog{display:none}}
 </style>
 <style>
-/* v14: botões, porta USB-C, alto-falantes, câmera e sensor */
-.ipad{transform:rotateY(18deg) rotateX(-6deg)}
-.stage:hover .ipad{transform:rotateY(6deg) rotateX(-2deg)}
-@media(max-width:900px){.ipad{transform:none}}
-.ipad .st{position:absolute;display:block;top:calc(var(--t)/-2 - 3px);left:-3px;right:-3px;height:var(--t);background:linear-gradient(90deg,#c6c9cf,#eef0f2 50%,#b2b6bd);transform:translateZ(calc(var(--t)/-2)) rotateX(90deg)}
-.ipad .st i{position:absolute;top:50%;height:10px;margin-top:-5px;border-radius:3px;background:linear-gradient(180deg,#f6f7f9,#b3b7be);box-shadow:0 0 0 1px #868b93,0 1px 2px rgba(0,0,0,.45)}
-.ipad .st .pw{right:70px;width:46px}
-.ipad .st .v1{right:150px;width:30px}
-.ipad .st .v2{right:190px;width:30px}
-.ipad .st .mic{left:64px;width:4px;height:4px;margin-top:-2px;border-radius:50%;background:#2b2d31;box-shadow:none}
-.ipad .sl b{position:absolute;display:block;left:50%}
-.ipad .sl .usb{top:50%;width:12px;height:30px;margin:-15px 0 0 -6px;border-radius:6px;background:#0b0b0b;box-shadow:inset 0 0 0 1.5px #6b6f77}
-.ipad .sl .usb::after{content:"";position:absolute;left:50%;top:6px;bottom:6px;width:2px;margin-left:-1px;background:#555a62}
-.ipad .sl .spk{width:16px;height:48px;margin-left:-8px;background:radial-gradient(circle,#4a4d54 1.6px,transparent 2.2px) 0 0/8px 8px}
-.ipad .sl .spk.a{top:calc(50% - 112px)}
-.ipad .sl .spk.b{top:calc(50% + 64px)}
-.ipad::before{top:4px;width:8px;height:8px;margin-left:-4px;background:radial-gradient(circle at 35% 35%,#5a6b8c 0,#11151d 45%,#000 72%);box-shadow:0 0 0 1.5px #1c1c1a}
-.ipad .sen{position:absolute;top:6px;left:calc(50% + 24px);width:4px;height:4px;border-radius:50%;background:#1b1d22;box-shadow:inset 0 0 0 1px #2e3138}
-.rt{display:flex;align-items:center;gap:6px}
-</style>
-<style>
-/* v15: papéis brancos no hero · sombras harmônicas · divisões claras entre seções
-   Cole este bloco logo depois do <style> v14, antes de </head>. Nenhuma outra edição é necessária. */
-
-/* ---------- 1) Escala de sombras (tema claro e escuro) ---------- */
-:root{
-  --r:10px;--sh-c:40,32,10;--line:#e6e3d8;
-  --sh-sm:0 1px 2px rgba(var(--sh-c),.06),0 4px 14px rgba(var(--sh-c),.06);
-  --sh-md:0 1px 2px rgba(var(--sh-c),.06),0 10px 28px rgba(var(--sh-c),.10);
-  --sh-lg:0 2px 4px rgba(var(--sh-c),.05),0 18px 44px rgba(var(--sh-c),.14);
-  --sh:var(--sh-sm);
-}
-:root[data-theme="dark"]{
-  --sh-sm:0 1px 0 rgba(255,255,255,.04) inset,0 6px 18px rgba(0,0,0,.35);
-  --sh-md:0 1px 0 rgba(255,255,255,.05) inset,0 12px 30px rgba(0,0,0,.45);
-  --sh-lg:0 1px 0 rgba(255,255,255,.06) inset,0 20px 48px rgba(0,0,0,.55);
-  --sh:var(--sh-sm);
-}
-
-/* Mesma luz, mesmo raio e mesma borda em todos os elementos elevados */
-.card,.sc,.chc,details,form,.brandpanel,.ck{box-shadow:var(--sh);border:1px solid var(--line)}
-.card,details,form,.brandpanel,.ck{border-radius:var(--r)}
-details[open]{border-left:2px solid var(--y)}
-input,select,textarea{border-radius:8px;border-color:var(--line)}
-.sc:hover{box-shadow:var(--sh-md);border-color:var(--y)}
-.ck{box-shadow:var(--sh-md)}
-.brandpanel{border-color:var(--ink-3)}
-.fc details{box-shadow:none;border:0;border-top:1px solid var(--line);border-radius:0}
-
-/* ---------- 2) Papéis do hero: sempre brancos ---------- */
-.pp b{
-  background:
-    repeating-linear-gradient(#d8d5c8 0 2px,transparent 2px 9px) 10px 26px/calc(100% - 20px) calc(100% - 38px) no-repeat,
-    linear-gradient(180deg,#ffffff 0%,#f6f4ee 100%);
-  border:1px solid #e4e1d4;border-top:5px solid var(--y);border-radius:3px;
-  box-shadow:0 1px 2px rgba(var(--sh-c),.10),0 12px 26px rgba(var(--sh-c),.18);
-}
-.pp b::before{content:"";position:absolute;left:10px;top:9px;width:42%;height:4px;border-radius:2px;background:var(--gg)}
-.pp b::after{content:"";position:absolute;right:0;bottom:0;width:14px;height:14px;background:linear-gradient(315deg,transparent 50%,#e9e5d6 50%);border-top-left-radius:3px}
-:root[data-theme="dark"] .pp b{
-  border-color:#fff;border-top-color:var(--y);
-  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 14px 30px rgba(0,0,0,.65);
-}
-
-/* ---------- 3) Divisões claras entre seções (claro e escuro) ---------- */
-main>section,main>.hl{position:relative;border-top:1px solid var(--line)}
-/* filete dourado centralizado no topo de cada seção */
-main>section::before{content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:min(520px,60%);height:2px;background:linear-gradient(90deg,transparent,var(--y),transparent)}
-/* faixas de destaque: linhas em cima e embaixo */
-main>.hl{border-bottom:1px solid var(--line)}
-/* depois de uma faixa não duplica linha nem filete */
-main>.hl+section{border-top:0}
-main>.hl+section::before{display:none}
-/* alternância de fundo: Resultados ganha a faixa suave */
-#resultados{background:var(--band)}
-/* a seção escura ganha borda própria nos dois temas */
-#como{border-top-color:var(--ink-3);border-bottom:1px solid var(--ink-3)}
-:root[data-theme="dark"] main>section,:root[data-theme="dark"] main>.hl{border-top-color:#3a3a35}
-:root[data-theme="dark"] main>.hl{border-bottom-color:#3a3a35}
+/* v14: resultados e serviços */
+.svc{grid-template-columns:repeat(4,1fr);gap:22px}@media(max-width:1100px){.svc{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.svc{grid-template-columns:1fr}}
+.sc{padding:34px 24px 26px}
+.ch2{display:grid;grid-template-columns:1fr 1fr;gap:24px}@media(max-width:900px){.ch2{grid-template-columns:1fr}}
+.chc{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:34px 30px;position:relative;overflow:hidden}
+.chc::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--gg)}
+.chc b{display:block;font:600 20px/1.3 var(--head)}.chc figcaption span{display:block;font-size:14px;color:var(--muted);margin-top:4px}
+.big{font:700 52px/1 var(--head);color:var(--gt);margin:22px 0 18px;letter-spacing:-.02em}
+.hb{display:grid;gap:18px}.hb div{font:500 14px var(--ui)}.hb div span{display:flex;justify-content:space-between;margin-bottom:7px;color:var(--muted)}.hb div span em{font-style:normal;font-weight:600;color:var(--text)}
+.hb u{display:block;height:12px;background:var(--band);border-radius:6px;overflow:hidden}.hb i{display:block;height:100%;width:var(--w);background:var(--gg);border-radius:6px}
+#ch2 svg{width:100%;height:auto;display:block;overflow:visible}#ch2 text{font:500 12px var(--ui);fill:var(--muted)}#ch2 .gl{stroke:var(--line);stroke-width:1}
+.cl{fill:none;stroke:#C8961F;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.cd{fill:var(--card);stroke:#C8961F;stroke-width:2.5}
+.ctab{margin-top:56px;text-align:center;display:grid;justify-items:center;gap:20px}.ctab h3{font-size:clamp(20px,2.4vw,26px)}
+.js .hb i{width:0}.chc.in .hb i{width:var(--w);transition:width 1.3s cubic-bezier(.2,.8,.2,1) calc(.3s + var(--i)*.15s)}
+.js .cl{stroke-dasharray:1;stroke-dashoffset:1}.chc.in .cl{stroke-dashoffset:0;transition:stroke-dashoffset 2s ease .3s}
+.js .ca,.js .cd{opacity:0}.chc.in .ca{opacity:1;transition:opacity 1s 1.5s}.chc.in .cd{opacity:1;transition:opacity .4s calc(.3s + var(--i)*.16s)}
+@media(max-width:560px){header .btn.sm{font-size:12px;padding:9px 12px}.brand small{font-size:11px}}
 </style>
 </head>
 <body>
@@ -477,26 +435,35 @@ main>.hl+section::before{display:none}
 </svg>
 
 <header><div class="wrap nav">
-  <a class="brand" href="#inicio" aria-label="WORK Contabilidade"><svg viewBox="0 0 647 725" aria-hidden="true"><use href="#logo"/></svg><span><b>WORK</b><small>Contabilidade</small></span></a>
+  <a class="brand" href="#inicio" aria-label="Work Serviços Empresariais"><svg viewBox="0 0 647 725" aria-hidden="true"><use href="#logo"/></svg><span><b>WORK</b><small>Serviços Empresariais</small></span></a>
   <nav aria-label="Principal"><ul>
-    <li><a class="on" href="#inicio">Home</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#como">Como funciona</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#contato">Contato</a></li>
+    <li><a class="on" href="#inicio">Home</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#resultados">Resultados</a></li><li><a href="#como">Como funciona</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#contato">Contato</a></li>
   </ul></nav>
-  <div class="hr"><button class="circ" id="tog" aria-label="Ativar tema escuro" aria-pressed="false"><svg class="i moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button><button class="btn sm" data-portal>Área do cliente</button></div>
+  <div class="hr"><button class="circ" id="tog" aria-label="Ativar tema escuro" aria-pressed="false"><svg class="i moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button><a class="btn sm" href="#contato">Fale com um especialista</a></div>
 </div></header>
 
 <main id="inicio">
 <div class="wrap h6g">
   <div>
-    <h1 class="wm">WORK<span>Contabilidade</span></h1>
+    <h1 class="wm">WORK<span>Serviços Empresariais</span></h1>
     <p class="lead">Mais do que contabilidade. Uma parceria para crescer com segurança.</p>
     <div class="actions"><a class="btn" href="#contato">Pedir proposta</a><a class="btn ghost" href="#servicos">Ver serviços</a></div>
-    <div class="st"><div><b>+10</b><span>anos de experiência</span></div><div><b>+200</b><span>clientes atendidos</span></div><div><b>24h</b><span>prazo de resposta</span></div></div>
+    <div class="st"><div><b>+10 anos</b><span>anos de experiência</span></div><div><b>+200</b><span>clientes atendidos</span></div><div><b>24h</b><span>prazo de resposta</span></div></div>
   </div>
-  <div class="scene" id="scene" role="img" aria-label="Três prédios em 3D, inspirados no símbolo da WORK"><div class="world" id="world"><div class="sway" id="sway"></div></div></div>
+  <div class="scene" id="scene" role="img" aria-label="Animação: balancete com gráfico crescendo, moedas caindo e documentos voando">
+    <div class="lay back" id="lb" aria-hidden="true"></div>
+    <div class="lay mid" aria-hidden="true"><div class="ledger" id="ledger">
+      <div class="lh"><b>Resultado do mês</b><span class="tag ok">Em dia</span></div>
+      <div class="tot" id="tot">R$ 128.450</div><small class="up">▲ 12,4% sobre o mês anterior</small>
+      <div class="chart"><div class="bars"><i style="--i:0;--h:34%"></i><i style="--i:1;--h:46%"></i><i style="--i:2;--h:40%"></i><i style="--i:3;--h:58%"></i><i style="--i:4;--h:52%"></i><i style="--i:5;--h:74%"></i><i style="--i:6;--h:88%"></i></div><svg class="spark" viewBox="0 0 100 50" preserveAspectRatio="none"><path class="ln" pathLength="1" d="M7 38L21 33L35 35L49 24L63 26L77 13L93 6"/></svg></div>
+      <ul class="lk"><li><svg class="tk" viewBox="0 0 24 24"><path pathLength="1" d="M5 12l5 5 9-10"/></svg>Guias do mês pagas</li><li><svg class="tk" viewBox="0 0 24 24"><path pathLength="1" d="M5 12l5 5 9-10"/></svg>Obrigações em dia</li></ul>
+    </div></div>
+    <div class="lay front" id="lf" aria-hidden="true"></div>
+  </div>
 </div>
 
 <section id="parceria" style="padding-bottom:40px"><div class="wrap read">
-  <p>Acreditamos que por trás de toda empresa existe uma história, um sonho e muito trabalho. Por isso, na WORK Contabilidade, unimos conhecimento técnico, responsabilidade e atendimento próximo para cuidar de cada detalhe da sua gestão.</p>
+  <p>Acreditamos que por trás de toda empresa existe uma história, um sonho e muito trabalho. Por isso, na Work Serviços Empresariais, unimos conhecimento técnico, responsabilidade e atendimento próximo para cuidar de cada detalhe da sua gestão.</p>
   <p>Nosso compromisso é tornar a contabilidade mais clara, simplificar decisões e oferecer a tranquilidade necessária para que você possa se dedicar ao que faz de melhor: desenvolver o seu negócio.</p>
 </div></section>
 
@@ -504,7 +471,7 @@ main>.hl+section::before{display:none}
 
 <section id="sobre" style="padding-top:20px"><div class="wrap">
   <div class="sg"><div><h2>Por trás de cada número, existe uma história.</h2>
-    <p style="margin-top:22px">A WORK Contabilidade nasceu da convicção de que um bom trabalho contábil vai muito além de cálculos, relatórios e obrigações fiscais. Ele começa com a escuta, se fortalece com a confiança e se consolida com a responsabilidade em cada entrega.</p>
+    <p style="margin-top:22px">A Work Serviços Empresariais nasceu da convicção de que um bom trabalho contábil vai muito além de cálculos, relatórios e obrigações fiscais. Ele começa com a escuta, se fortalece com a confiança e se consolida com a responsabilidade em cada entrega.</p>
     <p>Trabalhamos para construir relações duradouras com nossos clientes, oferecendo orientação clara, acompanhamento cuidadoso e soluções alinhadas à realidade de cada negócio.</p>
     <p>Sabemos que administrar uma empresa exige dedicação, coragem e muitas decisões importantes. É por isso que estamos ao lado de nossos clientes: para trazer mais clareza aos números, segurança aos processos e confiança para os próximos passos.</p></div>
     <div class="brandpanel"><svg viewBox="0 0 647 725" role="img" aria-label="Logo WORK"><use href="#logo"/></svg></div></div>
@@ -527,40 +494,40 @@ main>.hl+section::before{display:none}
 
 <section id="servicos">
   <div class="wrap">
-    <div class="head hc"><h2>Soluções completas</h2><p>Seis frentes para abrir, organizar e fazer crescer o seu negócio.</p></div>
-    <div class="svc"><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="6" width="36" height="52"/><rect x="20" y="12" width="24" height="10"/><path d="M21 31h4M30 31h4M39 31h4M21 39h4M30 39h4M39 39h4M21 47h4M30 47h4M39 47h4"/></svg><h3>Contabilidade</h3><p>Cuidamos dos registros, demonstrativos e informações contábeis da sua empresa com precisão e responsabilidade. Mais clareza sobre os números significa mais segurança para compreender os resultados e planejar o futuro.</p><a href="#contato">Saiba mais</a></article><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 6h24l10 10v42H16z"/><path d="M40 6v10h10"/><circle cx="26" cy="30" r="3"/><circle cx="40" cy="44" r="3"/><path d="M41 28 25 46"/></svg><h3>Gestão tributária</h3><p>Acompanhamos a rotina fiscal e avaliamos as possibilidades tributárias de acordo com a realidade do seu negócio, buscando conformidade, organização e decisões mais conscientes.</p><a href="#contato">Saiba mais</a></article><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="24" cy="22" r="8"/><path d="M8 54c0-9 7-16 16-16s16 7 16 16"/><circle cx="44" cy="25" r="6"/><path d="M44 38c8 0 12 6 12 14"/></svg><h3>Departamento pessoal</h3><p>Tratamos as rotinas trabalhistas com atenção e cuidado, desde admissões até folhas de pagamento e rescisões, contribuindo para relações profissionais mais organizadas e obrigações em dia.</p><a href="#contato">Saiba mais</a></article><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 56h48M14 56V20h22v36M36 56V32h14v24"/><path d="M21 28h8M21 36h8M21 44h8M41 40h4M41 48h4"/></svg><h3>Abertura e legalização de empresas</h3><p>Ajudamos você a transformar planos em um negócio formalizado, orientando os procedimentos de abertura, alterações cadastrais e regularização empresarial.</p><a href="#contato">Saiba mais</a></article><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 8v48h48"/><path d="M16 42l12-14 10 8 16-22"/><path d="M44 14h10v10"/></svg><h3>Gestão financeira</h3><p>Organização financeira, acompanhamento de indicadores e análise de resultados para que você compreenda melhor a situação da empresa e tome decisões com mais confiança.</p><a href="#contato">Saiba mais</a></article><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6a16 16 0 0 0-9 29c2 2 3 4 3 7h12c0-3 1-5 3-7A16 16 0 0 0 32 6z"/><path d="M26 50h12M28 56h8"/></svg><h3>Consultoria empresarial</h3><p>Uma visão próxima e estratégica da sua empresa para identificar oportunidades de melhoria, organizar processos e apoiar decisões alinhadas aos seus objetivos.</p><a href="#contato">Saiba mais</a></article></div>
+    <div class="head hc"><h2>Soluções completas</h2>
+      <p>Oito frentes para abrir, organizar e fazer crescer o seu negócio.</p></div>
+    <div class="svc"><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true">
+      <rect x="14" y="6" width="36" height="52"/><rect x="20" y="12" width="24" height="10"/>
+      <path d="M21 31h4M30 31h4M39 31h4M21 39h4M30 39h4M39 39h4M21 47h4M30 47h4M39 47h4"/>
+    </svg><h3>Contabilidade</h3><p>Cuidamos dos registros, demonstrativos e informações contábeis da sua empresa com precisão e responsabilidade. Mais clareza sobre os números significa mais segurança para compreender os resultados e planejar o futuro.</p><a href="#contato">Saiba mais</a></article><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 6h24l10 10v42H16z"/><path d="M40 6v10h10"/><circle cx="26" cy="30" r="3"/><circle cx="40" cy="44" r="3"/><path d="M41 28 25 46"/></svg><h3>Gestão tributária</h3><p>Acompanhamos a rotina fiscal e avaliamos as possibilidades tributárias de acordo com a realidade do seu negócio, buscando conformidade, organização e decisões mais conscientes.</p><a href="#contato">Saiba mais</a></article><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M52 32a20 20 0 1 1-6-14"/><path d="M48 8v12H36"/><path d="M32 22v20M38 27c-1-3-11-4-12 1s12 5 12 10-11 5-13 0"/></svg><h3>Recuperação tributária</h3><p>Revisamos os tributos pagos nos últimos anos para identificar valores recolhidos a mais e recuperar o que é seu por direito, com segurança e dentro da lei.</p><a href="#contato">Saiba mais</a></article><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8v44M18 52h28M12 18h40"/><path d="M12 18l-8 18a8 8 0 0 0 16 0zM52 18l-8 18a8 8 0 0 0 16 0z"/></svg><h3>Assessoria jurídica</h3><p>Contratos, questões societárias e orientação preventiva para que a sua empresa tome decisões com respaldo jurídico e menos riscos.</p><a href="#contato">Saiba mais</a></article><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="24" cy="22" r="8"/><path d="M8 54c0-9 7-16 16-16s16 7 16 16"/><circle cx="44" cy="25" r="6"/><path d="M44 38c8 0 12 6 12 14"/></svg><h3>Departamento pessoal</h3><p>Tratamos as rotinas trabalhistas com atenção e cuidado, desde admissões até folhas de pagamento e rescisões, contribuindo para relações profissionais mais organizadas e obrigações em dia.</p><a href="#contato">Saiba mais</a></article><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 56h48M14 56V20h22v36M36 56V32h14v24"/><path d="M21 28h8M21 36h8M21 44h8M41 40h4M41 48h4"/></svg><h3>Abertura e legalização de empresas</h3><p>Ajudamos você a transformar planos em um negócio formalizado, orientando os procedimentos de abertura, alterações cadastrais e regularização empresarial.</p><a href="#contato">Saiba mais</a></article><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 8v48h48"/><path d="M16 42l12-14 10 8 16-22"/><path d="M44 14h10v10"/></svg><h3>Gestão financeira</h3><p>Organização financeira, acompanhamento de indicadores e análise de resultados para que você compreenda melhor a situação da empresa e tome decisões com mais confiança.</p><a href="#contato">Saiba mais</a></article><article class="sc"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6a16 16 0 0 0-9 29c2 2 3 4 3 7h12c0-3 1-5 3-7A16 16 0 0 0 32 6z"/><path d="M26 50h12M28 56h8"/></svg><h3>Consultoria empresarial</h3><p>Uma visão próxima e estratégica da sua empresa para identificar oportunidades de melhoria, organizar processos e apoiar decisões alinhadas aos seus objetivos.</p><a href="#contato">Saiba mais</a></article></div>
   </div>
 </section>
 
 <div class="hl"><div class="wrap"><p>Precisão no trabalho, clareza nas informações e respeito por cada cliente.</p></div></div>
 
-<section id="cliente">
-  <div class="wrap pt">
-    <div>
-      
-      <h2>Tudo da sua empresa em um só lugar</h2>
-      <p style="color:var(--muted);margin:22px 0 18px">Acesse com seu login, a qualquer hora e de qualquer dispositivo.</p>
-      <ul>
-        <li><b>Guias e vencimentos:</b> veja o que vence e o que já foi pago.</li>
-        <li><b>Documentos:</b> balancetes, folha e contratos organizados.</li>
-        <li><b>Solicitações:</b> peça algo ao escritório e acompanhe o protocolo.</li>
-      </ul>
-      <button class="btn" data-portal>Acessar área do cliente</button>
-    </div>
-    <div class="stage" aria-hidden="true"><div class="ipad"><i class="sl"><b class="spk a"></b><b class="usb"></b><b class="spk b"></b></i><i class="st"><i class="mic"></i><i class="v2"></i><i class="v1"></i><i class="pw"></i></i><i class="sb"></i><i class="sen"></i><div class="mock">
-      <div class="sbar"><span>9:41 &nbsp; seg. 19 de out.</span><span class="rt"><svg viewBox="0 0 16 12" width="14" height="11" fill="none" stroke="#e6e6e0" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1.5 4.2a9 9 0 0 1 13 0M4 6.9a5.5 5.5 0 0 1 8 0"/><circle cx="8" cy="10" r="1" fill="#e6e6e0" stroke="none"/></svg><span>100%</span><span class="bat"><b></b></span></span></div>
-      <h4>Guias e vencimentos</h4>
-      <div class="mr"><span>DAS · Simples Nacional</span><span class="tag wa">Vence 20/10</span></div>
-      <div class="mr"><span>FGTS Digital</span><span class="tag wa">Vence 20/10</span></div>
-      <div class="mr"><span>ISS municipal</span><span class="tag ok">Pago</span></div>
-      <div class="mr"><span>Balancete · setembro</span><span class="tag">Disponível</span></div>
-    </div></div></div>
+<section id="resultados"><div class="wrap">
+  <div class="head hc"><h2>Números que mostram o resultado</h2>
+    <p>Planejamento tributário bem feito reduz custos. Uma parceria de confiança faz o negócio crescer.</p>
   </div>
-</section>
+  <div class="ch2">
+    <figure class="chc"><figcaption>
+      <b>Economia tributária média</b>
+      <span>Clientes que não aproveitavam 100% dos benefícios fiscais disponíveis</span>
+    </figcaption><div class="big" id="big1"></div><div class="hb" id="ch1"></div></figure>
+    <figure class="chc">
+      <figcaption>
+      <b>Crescimento médio do grupo</b>
+      <span>Work Serviços Empresariais · últimos 12 meses</span>
+    </figcaption>
+    <div class="big" id="big2"></div><div id="ch2"></div></figure>
+  </div>
+  <div class="ctab"><h3>Quer saber quanto a sua empresa pode economizar?</h3><a class="btn" href="#contato">Fale com um de nossos especialistas</a></div>
+</div></section>
 
 <section id="como" class="dark">
   <div class="wrap">
-    <div class="head"><h2 style="max-width:520px">Um atendimento que entende você e o seu negócio.</h2><div class="hp"><p>Cada empresa tem seus próprios desafios, objetivos e necessidades. Por isso, nosso trabalho começa com uma conversa, não com uma solução pronta.</p><p>Buscamos compreender a realidade de cada cliente para organizar as demandas, definir prioridades e oferecer um acompanhamento coerente com suas necessidades. Ao longo dessa parceria, mantemos uma comunicação clara, atenção aos prazos e disponibilidade para orientar quando surgem dúvidas ou novas decisões.</p></div></div>
+    <div class="head"><h2 style="max-width:520px">Um atendimento que entende você e o seu negócio.</h2>
+      <div class="hp"><p>Cada empresa tem seus próprios desafios, objetivos e necessidades. Por isso, nosso trabalho começa com uma conversa, não com uma solução pronta.</p><p>Buscamos compreender a realidade de cada cliente para organizar as demandas, definir prioridades e oferecer um acompanhamento coerente com suas necessidades. Ao longo dessa parceria, mantemos uma comunicação clara, atenção aos prazos e disponibilidade para orientar quando surgem dúvidas ou novas decisões.</p></div></div>
     <div class="steps">
       <div class="step"><h3>Conversa inicial</h3><p>Entendemos sua empresa, o regime atual e o que pesa no dia a dia.</p></div>
       <div class="step"><h3>Proposta clara</h3><p>Você recebe serviços e valores definidos, sem letra miúda.</p></div>
@@ -591,7 +558,7 @@ main>.hl+section::before{display:none}
   <div class="wrap cg">
     <div>
       
-      <h2>Vamos cuidar do seu negócio juntos?</h2><p style="color:var(--muted);margin-top:22px">Administrar uma empresa já exige bastante de você. Ter uma contabilidade de confiança ao seu lado pode tornar essa jornada mais clara, organizada e segura.</p><p style="color:var(--muted)">Conte-nos um pouco sobre sua empresa e sobre o que você precisa. Será um prazer conhecer a sua realidade e conversar sobre como a WORK Contabilidade pode contribuir para os seus próximos passos.</p><p style="font:600 16px var(--head)">WORK Contabilidade — ao seu lado em cada etapa.</p>
+      <h2>Vamos cuidar do seu negócio juntos?</h2><p style="color:var(--muted);margin-top:22px">Administrar uma empresa já exige bastante de você. Ter uma contabilidade de confiança ao seu lado pode tornar essa jornada mais clara, organizada e segura.</p><p style="color:var(--muted)">Conte-nos um pouco sobre sua empresa e sobre o que você precisa. Será um prazer conhecer a sua realidade e conversar sobre como a Work Serviços Empresariais pode contribuir para os seus próximos passos.</p><p style="font:600 16px var(--head)">Work Serviços Empresariais — ao seu lado em cada etapa.</p>
       <div class="cinfo">
         <div><b>WhatsApp</b><span>(00) 00000-0000</span></div>
         <div><b>E-mail</b><span><span data-email>contato@example.com</span></span></div>
@@ -603,7 +570,7 @@ main>.hl+section::before{display:none}
       <label>Nome<input name="nome" required autocomplete="name"></label>
       <label>Empresa<input name="empresa" autocomplete="organization"></label>
       <label>Telefone / WhatsApp<input name="tel" type="tel" autocomplete="tel"></label>
-      <label>Serviço de interesse<select name="servico"><option>Contábil</option><option>Tributário</option><option>Departamento pessoal</option><option>Abertura e legalização</option><option>Gestão financeira</option><option>Consultoria</option></select></label>
+      <label>Serviço de interesse<select name="servico"><option>Contábil</option><option>Tributário</option><option>Recuperação tributária</option><option>Jurídico</option><option>Departamento pessoal</option><option>Abertura e legalização</option><option>Gestão financeira</option><option>Consultoria</option></select></label>
       <label>Mensagem<textarea name="msg"></textarea></label>
       <button class="btn" type="submit">Enviar mensagem</button>
     </form>
@@ -614,54 +581,15 @@ main>.hl+section::before{display:none}
 <footer><div class="wrap">
   <div class="fg">
     <div><div class="fb">WORK</div><p style="margin-top:8px">Inteligência contábil e suporte estratégico para o crescimento sustentável do seu negócio.</p></div>
-    <div><h4>Soluções</h4><ul><li><a href="#servicos">Contábil</a></li><li><a href="#servicos">Tributário</a></li><li><a href="#servicos">Departamento pessoal</a></li><li><a href="#servicos">Legalização</a></li></ul></div>
-    <div><h4>Institucional</h4><ul><li><a href="#sobre">Quem somos</a></li><li><a href="#" data-portal>Área do cliente</a></li><li><a href="#">Termos de uso</a></li><li><a href="#">Privacidade</a></li></ul></div>
+    <div><h4>Soluções</h4><ul><li><a href="#servicos">Contábil</a></li><li><a href="#servicos">Tributário</a></li><li><a href="#servicos">Departamento pessoal</a></li><li><a href="#servicos">Legalização</a></li><li><a href="#servicos">Jurídico</a></li><li><a href="#servicos">Recuperação tributária</a></li></ul></div>
+    <div><h4>Institucional</h4><ul><li><a href="#sobre">Quem somos</a></li><li><a href="#">Termos de uso</a></li><li><a href="#">Privacidade</a></li></ul></div>
     <div><h4>Contato</h4><ul><li>Rua Exemplo, 000 – Sua cidade/UF</li><li>(00) 0000-0000</li><li><span data-email>contato@example.com</span></li></ul></div>
   </div>
-  <div style="font-size:13px">© 2026 WORK Contabilidade. Todos os direitos reservados.</div>
+  <div style="font-size:13px">© 2026 Work Serviços Empresariais. Todos os direitos reservados.</div>
 </div></footer>
 
 <a class="wpp" href="https://wa.me/5500000000000" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c0 3 3.5 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></svg></a>
 
-<!-- ÁREA DO CLIENTE (demonstração) -->
-<div class="portal" id="portal" hidden role="dialog" aria-modal="true" aria-label="Área do cliente">
-  <div class="pc" id="pc">
-    <div class="ph"><b>WORK</b><button class="x" id="pclose">Fechar</button></div>
-    <div class="pb" id="lv">
-      <h3>Área do cliente</h3>
-      <p style="color:var(--muted)">Entre com seu e-mail e senha.</p>
-      <form id="lf" autocomplete="on">
-        <label>E-mail<input id="le" type="email" required autocomplete="username"></label>
-        <label>Senha<input id="lp" type="password" required autocomplete="current-password"></label>
-        <p class="err" id="lerr" role="alert"></p>
-        <button class="btn" type="submit">Entrar</button>
-      </form>
-      <p style="margin:14px 0 0;font-size:14px"><button class="lnk" id="forgot" type="button">Esqueci minha senha</button></p>
-      <p class="note"><b>Acesso de demonstração:</b><br>E-mail: cliente@exemplo.com<br>Senha: work2026<br>Os dados abaixo são fictícios e nada é enviado a um servidor.</p>
-    </div>
-    <div class="pb" id="dv" hidden>
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
-        <div><h3>Olá, Empresa Exemplo Ltda.</h3><span style="color:var(--muted);font-size:14px">CNPJ 00.000.000/0001-00 · Simples Nacional</span></div>
-        <button class="btn sm" id="out">Sair</button>
-      </div>
-      <div class="tiles"><div class="tile"><b>2</b><span>Guias em aberto</span></div><div class="tile"><b>3</b><span>Documentos novos</span></div><div class="tile"><b id="nreq">1</b><span>Solicitações</span></div></div>
-      <h3 style="margin-bottom:10px">Guias e vencimentos</h3>
-      <table class="tbl"><thead><tr><th>Guia</th><th>Vencimento</th><th>Valor</th><th>Situação</th><th></th></tr></thead><tbody>
-        <tr><td>DAS · Simples Nacional</td><td>20/10/2026</td><td>R$ 1.842,10</td><td><span class="tag wa">Em aberto</span></td><td><button class="lnk" data-dl>Baixar</button></td></tr>
-        <tr><td>FGTS Digital</td><td>20/10/2026</td><td>R$ 936,40</td><td><span class="tag wa">Em aberto</span></td><td><button class="lnk" data-dl>Baixar</button></td></tr>
-        <tr><td>ISS municipal</td><td>10/10/2026</td><td>R$ 412,00</td><td><span class="tag ok">Pago</span></td><td><button class="lnk" data-dl>Recibo</button></td></tr>
-      </tbody></table>
-      <div class="two">
-        <div><h3 style="margin-bottom:10px">Documentos</h3>
-          <ul class="lst"><li>Balancete · setembro/2026<button class="lnk" data-dl>Ver</button></li><li>Folha de pagamento · 09/2026<button class="lnk" data-dl>Ver</button></li><li>Contrato social<button class="lnk" data-dl>Ver</button></li></ul></div>
-        <div><h3 style="margin-bottom:10px">Nova solicitação</h3>
-          <form id="rf"><label>Assunto<select id="rs"><option>Segunda via de guia</option><option>Declaração ou certidão</option><option>Dúvida fiscal</option><option>Folha e funcionários</option></select></label>
-          <label>Mensagem<textarea id="rm" required></textarea></label><button class="btn sm" type="submit">Enviar solicitação</button></form>
-          <ul class="lst" id="rl" style="margin-top:14px"><li>#WK-1042 · Declaração de faturamento<span class="tag ok">Concluída</span></li></ul></div>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="ck" id="ck" hidden><p>Usamos cookies para melhorar a sua navegação. Ao continuar, você concorda com a nossa política de privacidade.</p><button class="btn sm ghost" id="ckn">Recusar</button><button class="btn sm" id="cky">Aceitar</button></div>
 <div class="toast" id="toast" hidden role="status"></div>
 
@@ -689,11 +617,35 @@ setTheme(root.getAttribute("data-theme")||"light");
 $("tog").addEventListener("click",function(){setTheme(root.getAttribute("data-theme")==="dark"?"light":"dark",true)});
 
 
-/* prédios 3D, inclinação e cookies */
-(function(){var T=[[-170,90,170,90],[-50,100,310,100],[80,100,230,100]];
-$("sway").innerHTML=T.map(function(t){return '<div class="tw" style="--x:'+t[0]+'px;--w:'+t[1]+'px;--h:'+t[2]+'px;--d:'+t[3]+'px"><i class="a"></i><i class="b"></i><i class="c"></i><i class="e"></i><i class="t"></i></div>'}).join("");
-var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;if(rm)return;
-var sc=$("scene");document.querySelector(".h6g").addEventListener("pointermove",function(e){var r=this.getBoundingClientRect();$("world").style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*26+"deg")});
+/* v13: animações */
+(function(){var rm=matchMedia("(prefers-reduced-motion: reduce)").matches,sc=$("scene"),led=$("ledger"),tot=$("tot");
+function N(a,b){return a+Math.random()*(b-a)}
+function count(el,to,dur,fmt){var t0=performance.now();(function f(t){var p=Math.min(1,(t-t0)/dur);el.textContent=fmt(Math.round(to*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)})(t0)}
+var fmt=function(v){return "R$ "+v.toLocaleString("pt-BR")};
+if(rm){led.classList.add("go");return}
+var B="",F="";
+for(var i=0;i<14;i++){var c='<span class="coin" style="--x:'+N(2,92).toFixed(0)+'%;--s:'+N(22,38).toFixed(0)+'px;--dur:'+N(4.5,7.5).toFixed(1)+'s;--del:-'+N(0,7).toFixed(1)+'s;--fp:'+N(1.2,2.4).toFixed(1)+'s;--dx:'+N(-30,30).toFixed(0)+'px"><i></i></span>';if(i%2)F+=c;else B+=c}
+for(i=0;i<7;i++){var q='<span class="pp" style="--x:'+N(0,88).toFixed(0)+'%;--w:'+N(46,70).toFixed(0)+'px;--dur:'+N(7,11).toFixed(1)+'s;--del:-'+N(0,9).toFixed(1)+'s;--r:'+N(-28,28).toFixed(0)+'deg"><b></b></span>';if(i%2)F+=q;else B+=q}
+$("lb").innerHTML=B;$("lf").innerHTML=F;
+document.querySelector(".h6g").addEventListener("pointermove",function(e){var r=this.getBoundingClientRect();sc.style.setProperty("--px",((e.clientX-r.left)/r.width-.5)*2);sc.style.setProperty("--py",((e.clientY-r.top)/r.height-.5)*2)});
+function cycle(){led.classList.remove("go","fade");void led.offsetWidth;led.classList.add("go");count(tot,128450,1800,fmt);setTimeout(function(){led.classList.add("fade")},7000)}
+cycle();setInterval(cycle,8000);
+/* números do hero */
+document.querySelectorAll(".st b").forEach(function(b){var m=b.textContent.match(/^(\D*)(\d+)(\D*)$/);if(m)count(b,+m[2],1600,function(v){return m[1]+v+m[3]})});
+/* barra de progresso */
+var pg=document.createElement("div");pg.className="prog";document.querySelector("header").appendChild(pg);
+function sp(){var h=document.documentElement;pg.style.transform="scaleX("+(h.scrollTop/(h.scrollHeight-h.clientHeight||1))+")"}
+addEventListener("scroll",sp,{passive:true});sp();
+/* revelar ao rolar */
+document.documentElement.classList.add("js");
+document.querySelectorAll(".sc .ico *").forEach(function(e){e.setAttribute("pathLength","1")});
+document.querySelectorAll(".stage .mr").forEach(function(e,k){e.style.setProperty("--i",k)});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15,rootMargin:"0px 0px -6% 0px"});
+document.querySelectorAll(".read p,.hl,.sg>*,.pil .card,.sc,.fc,.row,.step,.pt>div:first-child,.head,.faq details,.cg>*,.close,.stage").forEach(function(e){
+  if(!e.classList.contains("stage")){e.classList.add("rv");e.style.setProperty("--d",(Array.prototype.indexOf.call(e.parentNode.children,e)%4)*.1+"s")}
+  io.observe(e)});
+})();
+(function(){var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;if(rm)return;
 if(matchMedia("(hover:hover)").matches)document.querySelectorAll(".tilt").forEach(function(el){
   el.addEventListener("pointermove",function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform="rotateX("+(-y*6).toFixed(1)+"deg) rotateY("+(x*8).toFixed(1)+"deg)"});
   el.addEventListener("pointerleave",function(){el.style.transform=""})})})();
@@ -702,26 +654,23 @@ function f(v){$("ck").hidden=true;try{localStorage.setItem("work-ck",v)}catch(e)
 $("cky").addEventListener("click",function(){f("1")});$("ckn").addEventListener("click",function(){f("0")})})();
 
 document.querySelectorAll(".sc a").forEach(function(a,i){a.addEventListener("click",function(){var q=document.querySelector('select[name="servico"]');if(q)q.selectedIndex=i})});
-/* área do cliente (demonstração, sem servidor) */
-var P=$("portal"),T=$("toast"),tt;
-function toast(m){T.textContent=m;T.hidden=false;clearTimeout(tt);tt=setTimeout(function(){T.hidden=true},3200)}
-function show(logged){$("lv").hidden=logged;$("dv").hidden=!logged;$("pc").className=logged?"pc wide":"pc"}
-function openP(){P.hidden=false;document.body.style.overflow="hidden";if(!$("dv").hidden)return;setTimeout(function(){$("le").focus()},50)}
-function closeP(){P.hidden=true;document.body.style.overflow=""}
-document.querySelectorAll("[data-portal]").forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();openP()})});
-$("pclose").addEventListener("click",closeP);
-P.addEventListener("click",function(e){if(e.target===P)closeP()});
-document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!P.hidden)closeP()});
-$("lf").addEventListener("submit",function(e){e.preventDefault();
-  if($("le").value.trim().toLowerCase()==="cliente@exemplo.com"&&$("lp").value==="work2026"){$("lerr").textContent="";$("lp").value="";show(true)}
-  else{$("lerr").textContent="E-mail ou senha incorretos. Confira os dados e tente de novo."}});
-$("out").addEventListener("click",function(){show(false);toast("Você saiu da área do cliente.")});
-$("forgot").addEventListener("click",function(){toast("Na versão real, enviaremos um link de redefinição para o seu e-mail.")});
-document.querySelectorAll("[data-dl]").forEach(function(b){b.addEventListener("click",function(){toast("Na versão real, o arquivo seria aberto aqui.")})});
-var n=1043;
-$("rf").addEventListener("submit",function(e){e.preventDefault();var li=document.createElement("li");
-  li.innerHTML="#WK-"+(n++)+" · "+$("rs").value+'<span class="tag wa">Recebida</span>';$("rl").insertBefore(li,$("rl").firstChild);
-  $("nreq").textContent=$("rl").children.length;$("rm").value="";toast("Solicitação enviada. Responderemos em até 24 horas.")});
+var T=$("toast"),tt;function toast(m){T.textContent=m;T.hidden=false;clearTimeout(tt);tt=setTimeout(function(){T.hidden=true},3200)}
+(function(){
+/* DADOS ILUSTRATIVOS: troque pelos números reais da Work antes de publicar */
+var ECON=[["Simples Nacional",18],["Lucro Presumido",26],["Lucro Real",31]], MEDIA=25;
+var MES=["Nov","Dez","Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out"], CRESC=[1.8,3.5,5.9,7.4,9.8,11.2,13.9,15.1,17.3,19,20.2,21.4];
+$("big1").textContent="~"+MEDIA+"%";
+$("ch1").innerHTML=ECON.map(function(e,i){return '<div><span>'+e[0]+'<em>'+e[1]+'%</em></span><u><i style="--i:'+i+';--w:'+e[1]/40*100+'%"></i></u></div>'}).join("");
+$("big2").textContent="+"+CRESC[11].toString().replace(".",",")+"%";
+var W=460,H=250,L=34,R=10,T=14,B=30,mx=25,X=function(i){return L+i*(W-L-R)/11},Y=function(v){return T+(H-T-B)*(1-v/mx)};
+var pts=CRESC.map(function(v,i){return X(i).toFixed(1)+" "+Y(v).toFixed(1)}),d="M"+pts.join("L");
+var g="";[0,10,20].forEach(function(v){g+='<line class="gl" x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(v)+'" y2="'+Y(v)+'"/><text x="0" y="'+(Y(v)+4)+'">'+v+'%</text>'});
+var lb=MES.map(function(m,i){return i%2?'':'<text x="'+X(i)+'" y="'+(H-8)+'" text-anchor="middle">'+m+'</text>'}).join("");
+var dots=CRESC.map(function(v,i){return i%3==2||i==11?'<circle class="cd" style="--i:'+i+'" cx="'+X(i)+'" cy="'+Y(v)+'" r="5"/>':''}).join("");
+$("ch2").innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Crescimento acumulado médio do grupo nos últimos 12 meses"><defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8C547" stop-opacity=".45"/><stop offset="1" stop-color="#E8C547" stop-opacity="0"/></linearGradient></defs>'+g+lb+'<path class="ca" fill="url(#ag)" d="'+d+'L'+X(11)+' '+Y(0)+'L'+X(0)+' '+Y(0)+'Z"/><path class="cl" pathLength="1" d="'+d+'"/>'+dots+'</svg>';
+var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io2.unobserve(e.target)}})},{threshold:.25});
+document.querySelectorAll(".chc,.ctab").forEach(function(e){io2.observe(e)});
+})();
 </script>
 </body>
 </html>
