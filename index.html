@@ -8,7 +8,7 @@
 <meta name="description" content="Contabilidade, assessoria jurídica e recuperação tributária com clareza, segurança e proximidade.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@800&family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@800&family=Fraunces:opsz,wght,SOFT,WONK@72..144,800,100,1&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#fff;--band:#f5f5f2;--card:#fff;--text:#1c1c1a;--muted:#5c5c56;--line:#e2e2dc;--ink:#1c1c1a;--ink-2:#262624;--ink-3:#3b3b37;--y:#D4AF37;--yd:#A67C00;--gt:#8A6508;--sh:0 1px 2px rgba(0,0,0,.05),0 10px 28px rgba(0,0,0,.06);
 --ui:'Inter','Helvetica Neue',Arial,sans-serif;--head:'Roboto Slab',Georgia,serif;color-scheme:light;
@@ -525,8 +525,6 @@ footer .brand{color:#fff;display:inline-flex}
 footer .brand small{color:#b9b9b1}
 
 /* Área do cliente */
-#areaBtn{display:inline-flex;align-items:center;gap:8px}
-@media(max-width:760px){#areaBtn span{display:none}#areaBtn{padding:9px 11px}}
 /* ---------- 8) Foto de Serviços com sobreposição dourada em degradê ---------- */
 #servicos{
   background:
@@ -589,7 +587,7 @@ nav a{white-space:nowrap;padding:12px 11px}
 .brand small{white-space:nowrap}
 .hr{gap:10px;flex:none}
 .hr .btn{white-space:nowrap}
-.circ{position:relative}
+.circ{position:relative;display:grid;place-items:center;padding:0}
 #areaBtn::after,#tog::after{content:attr(aria-label);position:absolute;top:calc(100% + 10px);left:50%;transform:translate(-50%,4px);background:var(--ink);color:#fff;font:500 12px var(--ui);padding:6px 10px;border-radius:6px;white-space:nowrap;border:1px solid var(--ink-3);box-shadow:var(--sh-md);opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;z-index:5}
 @media(hover:hover){#areaBtn:hover::after,#tog:hover::after{opacity:1;transform:translate(-50%,0)}}
 #areaBtn:focus-visible::after,#tog:focus-visible::after{opacity:1;transform:translate(-50%,0)}
@@ -598,6 +596,16 @@ nav a{white-space:nowrap;padding:12px 11px}
 .hr .btn .m{display:none}
 @media(max-width:560px){.brand svg{width:36px;height:41px}.brand b{font-size:24px}.nav{gap:10px;height:72px}.hr{gap:6px}.circ{width:34px;height:34px}.hr .btn .d{display:none}.hr .btn .m{display:inline}}
 @media(max-width:420px){.brand small{display:none}}
+/* ---------- 12) Título WORK em Fraunces (curvas suaves), menor e com onda sutil + botões do balancete ---------- */
+.wm{font-family:'Fraunces','Playfair Display',Georgia,serif;font-weight:800;font-variation-settings:"SOFT" 100,"WONK" 1;letter-spacing:.01em;font-size:clamp(44px,7.2vw,92px);line-height:1}
+@media(prefers-reduced-motion:no-preference){
+  .wm.split i.ch{animation:chIn .9s cubic-bezier(.2,.8,.2,1) forwards,chWave 4.2s ease-in-out infinite;animation-delay:calc(.15s + var(--i)*.14s),calc(1.9s + var(--i)*.22s)}
+  @keyframes chWave{0%,100%{translate:0 0}50%{translate:0 -.07em}}
+}
+.sdots{position:absolute;left:0;right:0;bottom:2px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;z-index:5}
+.sdots button{font:600 12px var(--ui);padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;transition:color .2s,border-color .2s,background .2s,box-shadow .2s}
+.sdots button:hover{color:var(--text);border-color:var(--y)}
+.sdots button[aria-pressed="true"]{background:var(--gg);color:#1c1c1a;border-color:transparent;box-shadow:0 4px 12px rgba(200,150,31,.3)}
 </style>
 </head>
 <body>
@@ -625,9 +633,9 @@ nav a{white-space:nowrap;padding:12px 11px}
     <h1 class="wm">WORK<span>Serviços Empresariais</span></h1><script>(function(){var h=document.querySelector(".wm");if(!h||matchMedia("(prefers-reduced-motion: reduce)").matches)return;var t=h.firstChild;if(!t||t.nodeType!==3)return;var f=document.createDocumentFragment();h.setAttribute("aria-label","WORK Serviços Empresariais");Array.prototype.forEach.call(t.nodeValue,function(c,i){var e=document.createElement("i");e.className="ch";e.setAttribute("aria-hidden","true");e.style.setProperty("--i",i);e.textContent=c;f.appendChild(e)});h.replaceChild(f,t);h.classList.add("split")})();</script>
     <p class="lead">Mais do que contabilidade. Uma parceria para crescer com segurança.</p>
     <div class="actions"><a class="btn" href="#contato">Pedir proposta</a><a class="btn ghost" href="#servicos">Ver serviços</a></div>
-    <div class="st"><div><b>+10</b><span>anos de experiência</span></div><div><b>+200</b><span>clientes atendidos</span></div><div><b>24h</b><span>prazo de resposta</span></div></div>
+    <div class="st"><div><b>+10</b><span>anos de experiência</span></div><div><b>+1000</b><span>clientes satisfeitos</span></div><div><b>+200</b><span>empresas</span></div></div>
   </div>
-  <div class="scene" id="scene" role="img" aria-label="Animação: balancete com gráfico crescendo, moedas caindo e documentos voando">
+  <div class="scene" id="scene" role="group" aria-label="Exemplos de balancete com gráfico animado, moedas e documentos">
     <div class="lay back" id="lb" aria-hidden="true"></div>
     <div class="lay mid" aria-hidden="true"><div class="ledger" id="ledger">
       <div class="lh"><b>Resultado do mês</b><span class="tag ok">Em dia</span></div>
@@ -636,6 +644,7 @@ nav a{white-space:nowrap;padding:12px 11px}
       <ul class="lk"><li><svg class="tk" viewBox="0 0 24 24"><path pathLength="1" d="M5 12l5 5 9-10"/></svg>Guias do mês pagas</li><li><svg class="tk" viewBox="0 0 24 24"><path pathLength="1" d="M5 12l5 5 9-10"/></svg>Obrigações em dia</li></ul>
     </div></div>
     <div class="lay front" id="lf" aria-hidden="true"></div>
+    <div class="sdots"><button type="button" aria-pressed="true">Resultado</button><button type="button" aria-pressed="false">Economia</button><button type="button" aria-pressed="false">Recuperação</button></div>
   </div>
 </div>
 
@@ -797,14 +806,26 @@ $("tog").addEventListener("click",function(){setTheme(root.getAttribute("data-th
 function N(a,b){return a+Math.random()*(b-a)}
 function count(el,to,dur,fmt){var t0=performance.now();(function f(t){var p=Math.min(1,(t-t0)/dur);el.textContent=fmt(Math.round(to*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)})(t0)}
 var fmt=function(v){return "R$ "+v.toLocaleString("pt-BR")};
+var SC=[
+ {t:"Resultado do mês",g:"Em dia",v:128450,u:"▲ 12,4% sobre o mês anterior",b:[34,46,40,58,52,74,88],l:"M7 38L21 33L35 35L49 24L63 26L77 13L93 6",k:["Guias do mês pagas","Obrigações em dia"]},
+ {t:"Economia tributária",g:"Otimizado",v:38920,u:"▲ 26,1% sobre o trimestre anterior",b:[42,30,52,48,66,60,86],l:"M7 42L21 38L35 41L49 28L63 22L77 18L93 8",k:["Regime tributário revisado","Créditos fiscais identificados"]},
+ {t:"Valor recuperado",g:"Recuperado",v:76310,u:"▲ 18,7% sobre o ano anterior",b:[26,38,34,56,50,68,92],l:"M7 36L21 40L35 26L49 30L63 16L77 20L93 5",k:["Revisão dos últimos 5 anos","Valores a recuperar identificados"]}];
+var si=0,tm,fd,dts=[].slice.call(document.querySelectorAll(".sdots button"));
+function render(i){var d=SC[i];led.querySelector(".lh b").textContent=d.t;led.querySelector(".lh .tag").textContent=d.g;led.querySelector(".up").textContent=d.u;
+  [].forEach.call(led.querySelectorAll(".bars i"),function(e,k){e.style.setProperty("--h",d.b[k]+"%")});
+  led.querySelector(".ln").setAttribute("d",d.l);
+  [].forEach.call(led.querySelectorAll(".lk li"),function(li,k){li.lastChild.nodeValue=d.k[k]});
+  dts.forEach(function(b,k){b.setAttribute("aria-pressed",k===i)})}
+dts.forEach(function(b,k){b.addEventListener("click",function(){si=k;if(rm){render(k);tot.textContent=fmt(SC[k].v);return}cycle();clearInterval(tm);tm=setInterval(next,8000)})});
 if(rm){led.classList.add("go");return}
 var B="",F="";
 for(var i=0;i<14;i++){var c='<span class="coin" style="--x:'+N(2,92).toFixed(0)+'%;--s:'+N(22,38).toFixed(0)+'px;--dur:'+N(4.5,7.5).toFixed(1)+'s;--del:-'+N(0,7).toFixed(1)+'s;--fp:'+N(1.2,2.4).toFixed(1)+'s;--dx:'+N(-30,30).toFixed(0)+'px"><i></i></span>';if(i%2)F+=c;else B+=c}
 for(i=0;i<7;i++){var q='<span class="pp" style="--x:'+N(0,88).toFixed(0)+'%;--w:'+N(46,70).toFixed(0)+'px;--dur:'+N(7,11).toFixed(1)+'s;--del:-'+N(0,9).toFixed(1)+'s;--r:'+N(-28,28).toFixed(0)+'deg"><b></b></span>';if(i%2)F+=q;else B+=q}
 $("lb").innerHTML=B;$("lf").innerHTML=F;
 document.querySelector(".h6g").addEventListener("pointermove",function(e){var r=this.getBoundingClientRect();sc.style.setProperty("--px",((e.clientX-r.left)/r.width-.5)*2);sc.style.setProperty("--py",((e.clientY-r.top)/r.height-.5)*2)});
-function cycle(){led.classList.remove("go","fade");void led.offsetWidth;led.classList.add("go");count(tot,128450,1800,fmt);setTimeout(function(){led.classList.add("fade")},7000)}
-cycle();setInterval(cycle,8000);
+function cycle(){render(si);led.classList.remove("go","fade");void led.offsetWidth;led.classList.add("go");count(tot,SC[si].v,1800,fmt);clearTimeout(fd);fd=setTimeout(function(){led.classList.add("fade")},7000)}
+function next(){si=(si+1)%SC.length;cycle()}
+cycle();tm=setInterval(next,8000);
 /* números do hero */
 document.querySelectorAll(".st b").forEach(function(b){var m=b.textContent.match(/^(\D*)(\d+)(\D*)$/);if(m)count(b,+m[2],1600,function(v){return m[1]+v+m[3]})});
 /* barra de progresso */
@@ -832,10 +853,10 @@ document.querySelectorAll(".sc a").forEach(function(a,i){a.addEventListener("cli
 var T=$("toast"),tt;function toast(m){T.textContent=m;T.hidden=false;clearTimeout(tt);tt=setTimeout(function(){T.hidden=true},3200)}
 (function(){
 /* DADOS ILUSTRATIVOS: troque pelos números reais da Work antes de publicar */
-var ECON=[["Simples Nacional",18],["Lucro Presumido",26],["Lucro Real",31]], MEDIA=25;
+var ECON=[["Simples Nacional",75],["Lucro Presumido",26],["Lucro Real",31]], MEDIA=44;
 var MES=["Nov","Dez","Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out"], CRESC=[11,21.3,36,45.1,59.7,68.2,84.7,92,105.4,115.8,123.1,130.4];
 $("big1").textContent="~"+MEDIA+"%";
-$("ch1").innerHTML=ECON.map(function(e,i){return '<div><span>'+e[0]+'<em>'+e[1]+'%</em></span><u><i style="--i:'+i+';--w:'+e[1]/40*100+'%"></i></u></div>'}).join("");
+$("ch1").innerHTML=ECON.map(function(e,i){return '<div><span>'+e[0]+'<em>'+e[1]+'%</em></span><u><i style="--i:'+i+';--w:'+e[1]+'%"></i></u></div>'}).join("");
 $("big2").textContent="+"+CRESC[11].toString().replace(".",",")+"%";
 var W=460,H=250,L=34,R=10,T=14,B=30,mx=140,X=function(i){return L+i*(W-L-R)/11},Y=function(v){return T+(H-T-B)*(1-v/mx)};
 var pts=CRESC.map(function(v,i){return X(i).toFixed(1)+" "+Y(v).toFixed(1)}),d="M"+pts.join("L");
